@@ -72,3 +72,26 @@ O cadastro manual pode conter apenas os dados conhecidos. Campos oficiais descon
 - Definir documentos obrigatórios por modalidade.
 - Definir permissões e regras de transição automática versus revisão humana.
 - Validar fluxos de PAC, transferências especiais, fundo a fundo e SP Sem Papel.
+
+
+## 8. Simulação da etapa Em Análise — protótipo v3.7
+
+A ficha municipal em **Em Análise** apresenta programa de origem, prazo de apresentação de propostas, decisão municipal, providência e situação do cadastramento. Os dados de programa são consultados por vínculo e não devem ser confundidos com campos municipais editáveis.
+
+### Decisões da equipe
+
+- **Manter em avaliação:** o recurso permanece em Em Análise.
+- **Preparar proposta:** registra a intenção operacional de iniciar a preparação, mas não significa proposta oficialmente enviada.
+- **Não prosseguir:** registra decisão e motivo; a futura implementação deverá definir encerramento ou arquivamento apropriado, sem apagar o recurso.
+
+Toda decisão exige observação e gera evento de histórico, com responsável e horário na implementação definitiva.
+
+### Evento de cadastramento
+
+A simulação permite registrar proposta criada/rascunho, proposta enviada ou preparação iniciada pelo Município, e confirmar a passagem para **Em Cadastramento**. Identificador é exigido no protótipo para proposta criada/enviada; preparação iniciada pode não possuir número.
+
+**Regra de produção:** a mera existência de número de proposta não deve causar avanço automático sem verificar a semântica do evento, o tipo de recurso e a plataforma. A integração deverá mapear eventos reais por fonte; quando houver ambiguidade, gerar pendência de revisão humana.
+
+### Limitações atuais
+
+O protótipo utiliza dados fictícios e sessionStorage. Não existe rotina de sincronização de propostas, verificação automática de eventos, autenticação de servidores ou auditoria imutável. A transição é confirmada manualmente durante a demonstração.
